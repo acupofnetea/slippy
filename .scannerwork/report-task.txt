@@ -1,0 +1,6 @@
+projectKey=slippy
+serverUrl=http://localhost:9000
+serverVersion=26.4.0.121862
+dashboardUrl=http://localhost:9000/dashboard?id=slippy
+ceTaskId=ffcd9ebe-d518-4586-8df7-cb69f8bc8e87
+ceTaskUrl=http://localhost:9000/api/ce/task?id=ffcd9ebe-d518-4586-8df7-cb69f8bc8e87
