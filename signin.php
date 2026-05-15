@@ -58,7 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <style>
     /* Modern Premium Design System */
     :root {
-      /* Light Theme */
       --bg-primary: #f8fafc;
       --bg-secondary: #ffffff;
       --text-primary: #0f172a;
@@ -75,12 +74,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 16px;
-      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       --glass: rgba(255, 255, 255, 0.7);
     }
 
     .dark {
-      /* Dark Theme */
       --bg-primary: #0f172a;
       --bg-secondary: #1e293b;
       --text-primary: #f8fafc;
@@ -102,13 +99,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       box-sizing: border-box;
     }
 
-    @font-face {
-      font-family: 'SF Pro Display';
-      src: url('https://fonts.cdnfonts.com/css/sf-pro-display') format('woff2');
-    }
-
     body {
-      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
       background: var(--bg-primary);
       color: var(--text-primary);
       overflow-x: hidden;
@@ -118,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      transition: var(--transition);
+      transition: background 0.3s ease, color 0.3s ease;
     }
     
     /* Login Container */
@@ -145,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       box-shadow: var(--shadow-lg);
       position: relative;
       z-index: 2;
-      animation: fadeInUp 0.8s ease-out;
+      animation: fadeInUp 0.5s ease-out;
     }
     
     .logo {
@@ -158,7 +150,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       gap: 8px;
       color: var(--text-primary);
       text-decoration: none;
-      transition: var(--transition);
       margin-bottom: 1.5rem;
     }
 
@@ -210,7 +201,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       border-radius: var(--radius-sm);
       font-size: 0.95rem;
       color: var(--text-primary);
-      transition: var(--transition);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
       outline: none;
     }
     
@@ -230,7 +221,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       padding: 0.9rem 1.75rem;
       border-radius: var(--radius-sm);
       font-weight: 500;
-      transition: var(--transition);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       font-size: 0.95rem;
       border: none;
       cursor: pointer;
@@ -239,7 +230,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       justify-content: center;
       gap: 8px;
       letter-spacing: -0.2px;
-      will-change: transform;
       width: 100%;
     }
 
@@ -247,49 +237,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       background: var(--accent-primary);
       color: white;
       box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-      position: relative;
-      overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-    }
-
-    .btn-primary::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -60%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.1) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      transform: rotate(30deg);
-      transition: var(--transition);
-    }
-
-    .btn-primary:hover::after {
-      left: 100%;
-    }
-
-    .btn-outline {
-      border: 1px solid var(--border-secondary);
-      color: var(--text-primary);
-      background: var(--glass);
-      backdrop-filter: blur(5px);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--accent-secondary);
-      color: var(--accent-secondary);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
     }
     
     /* Error Message */
@@ -304,7 +257,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      animation: shake 0.5s ease-in-out;
+      animation: shake 0.4s ease-in-out;
     }
     
     /* Links */
@@ -319,7 +272,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       color: var(--accent-secondary);
       text-decoration: none;
       font-weight: 500;
-      transition: var(--transition);
+      transition: color 0.2s ease;
     }
     
     .login-links a:hover {
@@ -334,7 +287,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       color: var(--text-secondary);
       text-decoration: none;
       font-size: 0.9rem;
-      transition: var(--transition);
+      transition: color 0.2s ease;
     }
     
     .back-link:hover {
@@ -352,7 +305,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       background: var(--glass);
       border: 1px solid var(--border-secondary);
       cursor: pointer;
-      transition: var(--transition);
+      transition: border-color 0.2s ease;
       position: absolute;
       top: 2rem;
       right: 2rem;
@@ -369,41 +322,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       color: var(--text-primary);
     }
     
-    /* 3D Elements */
-    .floating-3d {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      z-index: 1;
-      animation: float3d 15s infinite ease-in-out;
-      opacity: 0.7;
-    }
-    
-    .floating-3d:nth-child(1) {
-      top: 15%;
-      left: 10%;
-      animation-delay: 0s;
-    }
-    
-    .floating-3d:nth-child(2) {
-      top: 65%;
-      right: 15%;
-      animation-delay: 2s;
-    }
-    
-    .floating-3d:nth-child(3) {
-      bottom: 20%;
-      left: 25%;
-      animation-delay: 4s;
-    }
-    
-    .floating-3d:nth-child(4) {
-      top: 40%;
-      right: 30%;
-      animation-delay: 6s;
-    }
-    
-    /* Premium Background Effects */
+    /* Lightweight Background Effects */
     .accent-shapes {
       position: absolute;
       width: 100%;
@@ -412,51 +331,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       left: 0;
       overflow: hidden;
       z-index: 0;
-      opacity: 0.6;
+      pointer-events: none;
     }
 
     .accent-circle {
       position: absolute;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(255, 142, 53, 0.1));
-      filter: blur(80px);
-      animation: float 25s ease-in-out infinite;
-      will-change: transform;
+      background: radial-gradient(circle, rgba(255, 107, 53, 0.12), rgba(255, 142, 53, 0.05) 70%, transparent);
     }
 
     .accent-circle:nth-child(1) {
-      width: 500px;
-      height: 500px;
-      top: 10%;
-      left: 5%;
-      animation-delay: 0s;
+      width: 350px;
+      height: 350px;
+      top: 5%;
+      left: 0%;
+      animation: gentleFloat 30s ease-in-out infinite;
     }
 
     .accent-circle:nth-child(2) {
-      width: 600px;
-      height: 600px;
-      top: 60%;
-      right: 10%;
-      animation-delay: 5s;
-      animation-duration: 30s;
-    }
-
-    .accent-circle:nth-child(3) {
-      width: 400px;
-      height: 400px;
-      bottom: 15%;
-      left: 20%;
-      animation-delay: 10s;
-      animation-duration: 35s;
-    }
-
-    .accent-circle:nth-child(4) {
       width: 300px;
       height: 300px;
-      top: 30%;
-      right: 25%;
-      animation-delay: 7s;
-      animation-duration: 40s;
+      bottom: 10%;
+      right: 5%;
+      animation: gentleFloat 35s ease-in-out infinite reverse;
     }
 
     .accent-grid {
@@ -470,21 +367,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       background-size: 40px 40px;
       opacity: 0.15;
       z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Decorative shapes */
+    .deco-shape {
+      position: absolute;
+      z-index: 1;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .deco-shape-1 {
+      width: 100px;
+      height: 100px;
+      top: 15%;
+      left: 10%;
+      border: 3px solid var(--accent-secondary);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      animation: gentleFloat 20s ease-in-out infinite;
+    }
+    .deco-shape-2 {
+      width: 70px;
+      height: 70px;
+      bottom: 20%;
+      right: 15%;
+      border: 3px solid var(--accent-tertiary);
+      border-radius: 50%;
+      animation: gentleFloat 25s ease-in-out infinite reverse;
     }
     
-    /* Premium Animations */
-    @keyframes float {
+    /* Animations */
+    @keyframes gentleFloat {
       0%, 100% {
-        transform: translate(0px, 0px) rotate(0deg);
-      }
-      25% {
-        transform: translate(40px, -60px) rotate(5deg);
+        transform: translate(0px, 0px);
       }
       50% {
-        transform: translate(-30px, 30px) rotate(-5deg);
-      }
-      75% {
-        transform: translate(20px, -20px) rotate(3deg);
+        transform: translate(15px, -15px);
       }
     }
 
@@ -498,36 +416,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         opacity: 1;
       }
     }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    
-    /* 3D Element Animation */
-    @keyframes float3d {
-      0%, 100% {
-        transform: translateY(0) rotateY(0);
-      }
-      25% {
-        transform: translateY(-20px) rotateY(90deg);
-      }
-      50% {
-        transform: translateY(0) rotateY(180deg);
-      }
-      75% {
-        transform: translateY(20px) rotateY(270deg);
-      }
-    }
     
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
-      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-      20%, 40%, 60%, 80% { transform: translateX(5px); }
+      20%, 60% { transform: translateX(-4px); }
+      40%, 80% { transform: translateX(4px); }
     }
     
     /* Responsive Design */
@@ -536,27 +429,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         padding: 2rem;
         margin: 1rem;
       }
-      
       .login-header h1 {
         font-size: 1.5rem;
       }
-      
-      .floating-3d {
-        transform: scale(0.7);
-      }
+      .deco-shape { display: none; }
     }
 
     @media (max-width: 480px) {
       .login-card {
         padding: 1.5rem;
       }
-      
       .login-header h1 {
         font-size: 1.3rem;
-      }
-      
-      .floating-3d {
-        transform: scale(0.5);
       }
     }
   </style>
@@ -569,15 +453,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </svg>
   </button>
   
-  <!-- 3D Elements -->
-  <div class="floating-3d" style="background: linear-gradient(135deg, rgba(255, 107, 53, 0.7), rgba(255, 142, 53, 0.5)); border-radius: 50%;"></div>
-  <div class="floating-3d" style="background: linear-gradient(135deg, rgba(255, 142, 53, 0.7), rgba(255, 107, 53, 0.5)); border-radius: 20%; transform: rotate(45deg);"></div>
-  <div class="floating-3d" style="background: linear-gradient(135deg, rgba(255, 107, 53, 0.6), rgba(255, 142, 53, 0.4)); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;"></div>
-  <div class="floating-3d" style="background: linear-gradient(135deg, rgba(255, 142, 53, 0.6), rgba(255, 107, 53, 0.4)); border-radius: 10px; transform: rotate(15deg);"></div>
-  
+  <!-- Lightweight decorative shapes -->
+  <div class="deco-shape deco-shape-1"></div>
+  <div class="deco-shape deco-shape-2"></div>
+
   <div class="accent-shapes">
-    <div class="accent-circle"></div>
-    <div class="accent-circle"></div>
     <div class="accent-circle"></div>
     <div class="accent-circle"></div>
   </div>
@@ -647,30 +527,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     html.classList.remove('dark');
   }
-
-  // Interactive blob effects
-  const circles = document.querySelectorAll('.accent-circle');
-  window.addEventListener('mousemove', (e) => {
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    
-    circles.forEach((circle, i) => {
-      const speed = (i + 1) * 0.0005;
-      circle.style.transform = `translate(${x * 20 * speed}px, ${y * 20 * speed}px)`;
-    });
-  });
-
-  // Interactive 3D elements
-  const floatingElements = document.querySelectorAll('.floating-3d');
-  window.addEventListener('mousemove', (e) => {
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    
-    floatingElements.forEach((element, i) => {
-      const speed = (i + 1) * 0.0003;
-      element.style.transform += ` translate(${x * 10 * speed}px, ${y * 10 * speed}px)`;
-    });
-  });
 </script>
 </body>
 </html>
